@@ -1,8 +1,9 @@
 import translate from "i18n-jsautotranslate";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
-import { useEffect } from "react";
+
+let isInitialized = false;
 
 function App() {
   // 获取本地语言设置
@@ -11,6 +12,22 @@ function App() {
   const [currentLanguage, setCurrentLanguage] = useState(
     translate.language.getCurrent()
   );
+
+  // 在 id=translate 元素挂载后再初始化和执行翻译
+  useEffect(() => {
+    if (isInitialized) return;
+    // 使用客户端边缘翻译服务
+    translate.service.use("client.edge");
+    // 启用URL参数控制语言
+    translate.language.setUrlParamControl();
+    // 只在未启动时调用监听
+    if (!translate.listener.isStart) {
+      translate.listener.start();
+    }
+    // 执行翻译
+    translate.execute();
+    isInitialized = true;
+  }, []);
 
   // 支持的语言列表
   const languages = [
@@ -31,18 +48,6 @@ function App() {
       value: "korean",
     },
   ];
-
-  // 组件挂载时初始化翻译服务
-  useEffect(() => {
-    // 使用客户端边缘翻译服务
-    translate.service.use("client.edge");
-    // 启用URL参数控制语言
-    translate.language.setUrlParamControl();
-    // 开始监听语言变化
-    translate.listener.start();
-    // 执行翻译
-    translate.execute();
-  }, []);
 
   // 切换语言的处理函数
   const changeLanguage = (lang) => {
