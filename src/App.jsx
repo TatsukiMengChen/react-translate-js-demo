@@ -22,6 +22,10 @@ function App() {
       label: "日本語",
       value: "japanese",
     },
+    {
+      label: "한국어",
+      value: "korean",
+    },
   ];
 
   useEffect(() => {
