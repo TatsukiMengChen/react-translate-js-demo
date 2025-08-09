@@ -1,5 +1,6 @@
 {
   "name": "react-translate-js-demo",
+  "description": "这是一个 React 使用 i18n-jsautotranslate 的示例 Demo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
