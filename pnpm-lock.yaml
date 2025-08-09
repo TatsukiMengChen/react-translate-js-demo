@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      i18n-jsautotranslate:
+        specifier: ^3.17.0
+        version: 3.17.0
       react:
         specifier: ^19.1.1
         version: 19.1.1
@@ -693,6 +696,9 @@ packages:
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
+
+  i18n-jsautotranslate@3.17.0:
+    resolution: {integrity: sha512-tQs9297mOCuE/QCdTuNVNEFjaSORtWyHCoYz5BfM9Jr9bIq4DXoBQ+itPe7LxzeeTv6//fsvyYAx1kAFWT9P+w==}
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -1533,6 +1539,8 @@ snapshots:
   globals@16.3.0: {}
 
   has-flag@4.0.0: {}
+
+  i18n-jsautotranslate@3.17.0: {}
 
   ignore@5.3.2: {}
 
