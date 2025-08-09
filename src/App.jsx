@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import translate from "i18n-jsautotranslate";
+import { useState } from "react";
+
+import "./App.css";
+import { useEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [localLanguage] = useState(translate.language.getLocal());
+  const [currentLanguage, setCurrentLanguage] = useState(
+    translate.language.getCurrent()
+  );
+  const languages = [
+    {
+      label: "简体中文",
+      value: "chinese_simplified",
+    },
+    {
+      label: "English",
+      value: "english",
+    },
+    {
+      label: "日本語",
+      value: "japanese",
+    },
+  ];
+
+  useEffect(() => {
+    translate.service.use("client.edge");
+    translate.language.setUrlParamControl();
+    translate.listener.start();
+    translate.execute();
+  }, []);
+
+  const changeLanguage = (lang) => {
+    setCurrentLanguage(lang);
+    translate.changeLanguage(lang);
+  };
 
   return (
     <>
+      <div>本地语言： {localLanguage}</div>
+      <div>当前语言： {currentLanguage}</div>
+      <hr />
+      <div className="content">
+        博客（英语：Blog）是一种在线日记型式的个人网站，借由张帖子章、图片或视频来记录生活、抒发情感或分享信息。博客上的文章通常根据张贴时间，以倒序方式由新到旧排列。
+      </div>
+      <hr />
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        按钮切换语言：
+        {languages.map((lang) => (
+          <button key={lang.value} onClick={() => changeLanguage(lang.value)}>
+            {lang.label}
+          </button>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div id="translate">select 选择框切换语言：</div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
