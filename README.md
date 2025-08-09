@@ -1,12 +1,57 @@
-# React + Vite
+# react-translate-js-demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 在线演示地址（GitHub Pages）：[https://tatsukimengchen.github.io/react-translate-js-demo/](https://tatsukimengchen.github.io/react-translate-js-demo/)
 
-Currently, two official plugins are available:
+本项目是一个基于 React 的多语言自动翻译 Demo，集成了 `i18n-jsautotranslate` 组件，支持多语言切换和自动翻译。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 功能介绍
 
-## Expanding the ESLint configuration
+- 支持多语言切换
+- 自动检测本地语言
+- 按钮和下拉框切换语言
+- 自动翻译页面内容
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 快速开始
+
+### 1. 安装依赖
+
+```bash
+pnpm install
+# 或
+npm install
+# 或
+yarn install
+```
+
+### 2. 启动项目
+
+```bash
+pnpm dev
+# 或
+npm run dev
+# 或
+yarn dev
+```
+
+### 3. 访问页面
+
+浏览器打开 http://localhost:5173 即可体验多语言自动翻译 Demo
+
+## 主要代码说明
+
+`src/App.jsx` 主要逻辑：
+
+- 初始化 `i18n-jsautotranslate`，设置语言监听和 URL 参数控制
+- 提供按钮和下拉框切换语言
+- 展示本地语言和当前语言
+- 自动翻译页面内容
+
+## 依赖说明
+
+- [i18n-jsautotranslate](https://www.npmjs.com/package/i18n-jsautotranslate)：自动翻译和多语言切换  
+  GitHub 仓库地址：[https://github.com/xnx3/translate](https://github.com/xnx3/translate)
+- React 18
+
+## 其他
+
+如需自定义翻译内容或扩展语言，请参考 `i18n-jsautotranslate` 官方文档。
