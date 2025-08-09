@@ -4,6 +4,9 @@
 
 本项目是一个基于 React 的多语言自动翻译 Demo，集成了 `i18n-jsautotranslate` 组件，支持多语言切换和自动翻译。
 
+> [!TIP]
+> 如果你并没有高度定制化需求，可以使用 [translate-react](https://github.com/TatsukiMengChen/translate-react) 这个库直接引入一个语言切换组件
+
 ## 功能介绍
 
 - 支持多语言切换
